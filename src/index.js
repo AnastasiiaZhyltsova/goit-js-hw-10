@@ -15,11 +15,11 @@ refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(evt) {
     evt.preventDefault();
-    inputValue = evt.target.value.trim();
-    // if (inputValue.length <=1) {
-    //     refs.countryInfo.innerHTML = '';
-    //     refs.countryList.innerHTML = '';   
-    //  }
+    let inputValue = evt.target.value.trim();
+    if (inputValue.length <=1) {
+        refs.countryInfo.innerHTML = '';
+        refs.countryList.innerHTML = '';   
+     }
     fetchCountries(inputValue)
         .then(r => {
             console.log(r);
@@ -35,9 +35,9 @@ function onInput(evt) {
             }
         })
         .catch(error => {
-            // if (inputValue.length > 0) {
+            if (inputValue.length > 0) {
                 return onFetchError(error);
-            // }
+            }
         });
 }
 function renderCountriesList(countries) {
