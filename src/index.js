@@ -16,30 +16,36 @@ refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 function onInput(evt) {
     evt.preventDefault();
     let inputValue = evt.target.value.trim();
-    if (inputValue.length < 1) {
-        refs.countryInfo.innerHTML = '';
+    
+    if (inputValue === '') {
         refs.countryList.innerHTML = '';
+         refs.countryInfo.innerHTML ='';
         return;
+    } else if (inputValue.length <= 1) {
+        refs.countryList.innerHTML = '';
+         refs.countryInfo.innerHTML ='';
      }
     fetchCountries(inputValue)
         .then(r => {
-            console.log(r);
-            if (r.length > 10) {
+             if (r.length > 10) {
                 Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
             }
             else if (r.length >= 2 && r.length <= 10) {
                 refs.countryList.innerHTML = renderCountriesList(r);
                  refs.countryInfo.innerHTML ='';
-            } else {
+            } else if(r.length = 1){
                 refs.countryInfo.innerHTML = renderCountriesCard(r);
-                 refs.countryList.innerHTML = '';
+                refs.countryList.innerHTML = '';
             }
         })
         .catch(error => {
             if (inputValue.length > 0) {
-                return onFetchError(error);
-            }
+                refs.countryList.innerHTML = '';
+                refs.countryInfo.innerHTML ='';
+                return onFetchError(error);   
+        }
         });
+        
 }
 function renderCountriesList(countries) {
    return countries.map(country => 
