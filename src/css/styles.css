@@ -7,9 +7,10 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #ecead5;
   color: #212121;
   line-height: 1.5;
+  list-style-type: none;
 }
 
 #search-box {
@@ -17,4 +18,55 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  height: 50px;
+  color: #9c9a82;
+  background-color: #fff;
+  border: 1px solid #6a6853;
+  border-radius: 4px;
+  font-size: 20px;
+  outline: none;
+}
+
+.country-list{
+    /* font-weight: bold; */
+  
+    padding: 0;
+    margin: 0;
+    color: #6a6853;
+}
+.country-list__item{
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+.country-list__item:not(:last-child) {
+    margin-bottom: 5px;
+}
+.country-list__img{
+    margin-right: 10px;
+}
+.country-info{
+color: #6a6853;
+}
+.country-info__flex{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.country-info__name{
+    margin: 0 0 0 10px;
+  
+    font-size: 30px;
+    font-weight: bold;
+}
+.country-info__list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.country-info--bold{
+    font-weight: bold;
+}
+.country-info__item:not(:last-child) {
+    margin-bottom: 10px;
 }
