@@ -38,7 +38,6 @@ function onInput(evt) {
             if (inputValue.length > 0) {
                 return onFetchError(error);
             }
-           
         });
 }
 function renderCountriesList(countries) {
