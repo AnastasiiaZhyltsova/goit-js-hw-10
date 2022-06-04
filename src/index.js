@@ -57,7 +57,7 @@ function renderCountriesCard(countries) {
         <ul class='country-info__list'>
         <li class='country-info__item'><span class='country-info--bold'>Capital:</span> ${country.capital}</li>
         <li class='country-info__item'><span class='country-info--bold'>Population:</span> ${country.population}</li>
-        <li class='country-info__item'> <span class='country-info--bold'>Languages:</span> ${Object.values(countries[0].languages).join(', ')}</ul>
+        <li class='country-info__item'> <span class='country-info--bold'>Languages:</span> ${Object.values(country.languages).join(', ')}</ul>
         `
 ).join('')
 }
