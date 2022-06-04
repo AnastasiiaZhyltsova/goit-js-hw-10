@@ -16,9 +16,10 @@ refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 function onInput(evt) {
     evt.preventDefault();
     let inputValue = evt.target.value.trim();
-    if (inputValue.length <=1) {
+    if (inputValue.length < 1) {
         refs.countryInfo.innerHTML = '';
-        refs.countryList.innerHTML = '';   
+        refs.countryList.innerHTML = '';
+        return;
      }
     fetchCountries(inputValue)
         .then(r => {
