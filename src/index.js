@@ -19,7 +19,6 @@ function onInput(evt) {
     if (inputValue.length <=1) {
         refs.countryInfo.innerHTML = '';
         refs.countryList.innerHTML = '';   
-        return
      }
     fetchCountries(inputValue)
         .then(r => {
@@ -36,7 +35,10 @@ function onInput(evt) {
             }
         })
         .catch(error => {
-            return onFetchError(error);
+            if (inputValue.length > 0) {
+                return onFetchError(error);
+            }
+           
         });
 }
 function renderCountriesList(countries) {
